@@ -1,7 +1,9 @@
 class VideoMediaPlayer {
-    constructor({ manifestJSON, network }) {
+    constructor({ manifestJSON, network, videoComponent }) {
         this.manifestJSON = manifestJSON
         this.network = network
+        this.videoComponent = videoComponent
+
         this.videoElement = null
         this.sourceBuffer = null
         this.selected = {}
@@ -38,7 +40,19 @@ class VideoMediaPlayer {
 
             mediaSource.duration = this.videoDuration
             await this.fileDownload(selected.url)
+
+            // vai chamar o metodo a cada 200ms
+            setInterval(this.waitForQuestions().bind(this), 200)
         }
+    }
+
+    waitForQuestions() {
+        const currentTime = parseInt(this.videoElement.currentTime)
+        // const option = this.selected.at === currentTime
+
+        console.log('currentTime: ', currentTime)
+
+        // this.videoComponent.configureModal(this.selected.options)
     }
 
     async fileDownload(url) {
