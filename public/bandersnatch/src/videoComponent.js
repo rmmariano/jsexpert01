@@ -30,10 +30,10 @@ class VideoComponent {
             const htmlTemplate = `
             <div class='overlay'>
                 <div class='videoButtonWrapper'>
-                    <button class="btn btn-dark" onclick="window.nextChunk(${option1})">
+                    <button class="btn btn-dark" onclick="window.nextChunk('${option1}')">
                         ${option1}
                     </button>
-                    <button class="btn btn-dark" onclick="window.nextChunk(${option2})">
+                    <button class="btn btn-dark" onclick="window.nextChunk('${option2}')">
                         ${option2}
                     </button>
                 </div>
